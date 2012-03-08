@@ -1,4 +1,4 @@
-Proof of Concept
+λcademy - Proof of Concept #1
 ================
 
 This is the first POC for the λcademy programming challenges. In this example, the student adds comments to a simple blog.
