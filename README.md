@@ -5,9 +5,9 @@ This is the first POC for the λcademy programming challenges. In this example, 
 
 To get started, clone this repo.
 
-> mkdir -p ~/lambda
-> cd ~/lambda
-> git clone http://github.com/lambdacademy/poc1-blog-comments
+    mkdir -p ~/lambda
+    cd ~/lambda
+    git clone http://github.com/lambdacademy/poc1-blog-comments
 
 Problem Set
 ===========
@@ -18,19 +18,19 @@ A challenge consists of a "Problem Set" - a group of programming problems to sol
 
 Familiarize yourself with the project. To start, run
 
-> bundle
-> rails s
+    bundle
+    rails s
 
 You should be able to visit `http://localhost:3000/` in your web browser and see a few sample blog entries.
 You should also be able to create a new post and edit existing ones.
 
 Make sure your build is stable by running tests with
 
-> rake
+    rake
 
 To get started with the problem set, run
 
-> rake lambda
+    rake lambda
 
 and follow instructions.
 
