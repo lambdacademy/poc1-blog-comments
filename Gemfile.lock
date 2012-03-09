@@ -4,6 +4,11 @@ PATH
     lambdalib (0.0.1.alpha)
       colored
 
+PATH
+  remote: ../poc1_pset
+  specs:
+    poc1_pset (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -113,6 +118,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   lambdalib!
+  poc1_pset!
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)
   sqlite3

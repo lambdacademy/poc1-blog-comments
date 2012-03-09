@@ -38,4 +38,5 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'lambdalib', path: '../lambdalib'
+gem 'poc1_pset', path: '../poc1_pset'
 
