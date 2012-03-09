@@ -8,6 +8,8 @@ To get started, clone this repo.
     mkdir -p ~/lambda
     cd ~/lambda
     git clone http://github.com/lambdacademy/poc1-blog-comments
+    cd poc1-blog-comments
+    bundle
 
 Problem Set
 ===========
@@ -36,5 +38,7 @@ and follow instructions.
 
 ### Problem 1
 
-Create a model 
+Create a model `Comment` that includes three attributes: `body`, `author`, and `website`.
+
+HINT: Get started by generating a model `rails g Comment ...` and run `rake lambda`.
 
