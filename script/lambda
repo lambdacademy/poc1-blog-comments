@@ -10,8 +10,12 @@ host = m[1]
 uid = m[2]
 
 uri = URI.parse "http://#{ host }/faye"
+http = Net::HTTP.new uri.host, 9292
 
-res = Net::HTTP.post_form uri, :message => { :channel => "#{ uid }/startup", :data => true }
+request = Net::HTTP::Post.new uri.require_uri
+request.set_form_data :message => { :channel => "#{ uid }/startup", :data => true }
+
+response = http.request request
 
 puts "Starting Tutor..."
 
