@@ -12,7 +12,7 @@ uid = m[2]
 uri = URI.parse "http://#{ host }/faye"
 http = Net::HTTP.new uri.host, 9292
 
-request = Net::HTTP::Post.new uri.require_uri
+request = Net::HTTP::Post.new uri.request_uri
 request.set_form_data :message => { :channel => "#{ uid }/startup", :data => true }
 
 response = http.request request
