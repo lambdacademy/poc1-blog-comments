@@ -13,3 +13,9 @@ uri = URI.parse "http://#{ host }/faye"
 
 res = Net::HTTP.post_form uri, :message => { :channel => "#{ uid }/startup", :data => true }
 
+puts "Starting Tutor..."
+
+loop do
+  sleep 5
+end
+
