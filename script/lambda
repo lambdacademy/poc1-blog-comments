@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'net/http'
+require 'uri'
+
+re = /.*http:\/\/([^\/]*)\/([^\/]*).*/
+m = re.match `git remote show origin | grep 'Fetch URL'`
+
+host = m[1]
+uid = m[2]
+
+uri = URI.parse "http://#{ host }/faye"
+
+res = Net::HTTP.post_form uri, :message => { :channel => "#{ uid }/startup", :data => true }
+
