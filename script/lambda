@@ -12,7 +12,7 @@ uid = m[2]
 uri = URI.parse "http://#{ host }/faye"
 uri.port = 9292
 
-res = Net::HTTP.post_form uri, :message => "{\"channel\":\"/#{ uid }/startup\"}"
+res = Net::HTTP.post_form uri, :message => "{\"channel\":\"/#{ uid }/startup\", \"data\":\"true\"}"
 
 puts "Starting Tutor..."
 
