@@ -15,6 +15,7 @@ uri.port = 9292
 res = Net::HTTP.post_form uri, :message => "{\"channel\":\"/#{ uid }/startup\", \"data\":\"true\"}"
 
 puts "Starting Tutor..."
+puts "Open http://#{ host }/#{ uid }/pset/1 in your browser for your lesson."
 
 loop do
   sleep 5
