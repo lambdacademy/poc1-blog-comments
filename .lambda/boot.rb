@@ -14,6 +14,6 @@ get '/alive' do
 end
 
 get '/bundle/check' do
-    `bundle --gemfile=../Gemfile check`
+    `bundle check --gemfile=../Gemfile`
 end
 
