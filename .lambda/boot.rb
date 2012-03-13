@@ -10,11 +10,11 @@ get '/' do
     "Success!"
 end
 
-get 'alive' do
-    true
+get '/alive' do
+    "true"
 end
 
-get 'bundle/check' do
-    system("bundle check")
+get '/bundle/check' do
+    system("bundle check").to_s
 end
 
