@@ -17,6 +17,12 @@ res = Net::HTTP.post_form uri, :message => "{\"channel\":\"/#{ uid }/startup\", 
 puts "Starting Tutor..."
 puts "Open http://#{ host }/#{ uid }/pset1 in your browser to get your learning on!"
 
+unless system("which bundle")
+  puts "First, you need to install bundler!"
+  puts "=> gem install bundler"
+  exit(1)
+end
+
 `cd .lambda && ruby boot.rb`
 
 #loop do
