@@ -1,4 +1,3 @@
-puts "HIYA"
 require "rubygems"
 require "bundler/setup"
 
@@ -15,6 +14,6 @@ get '/alive' do
 end
 
 get '/bundle/check' do
-    system("bundle check").to_s
+    `bundle --gemfile=../Gemfile check`
 end
 
