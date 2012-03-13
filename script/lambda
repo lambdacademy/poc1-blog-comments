@@ -23,7 +23,9 @@ unless system("which bundle")
   exit(1)
 end
 
-`cd .lambda && ruby boot.rb`
+gem_home = File.expand_path('../.lambda/vendor/bundle/ruby/1.9.1', File.dirname(__FILE__))
+
+`cd .lambda && GEM_HOME=#{ gem_home } ruby boot.rb`
 
 #loop do
 #  sleep 5
