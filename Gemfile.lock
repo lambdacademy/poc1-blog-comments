@@ -1,11 +1,6 @@
-PATH
-  remote: ../lambdalib
-  specs:
-    lambdalib (0.0.1.alpha)
-      colored
-
-PATH
-  remote: ../poc1_pset
+GIT
+  remote: git://github.com/lambdacademy/poc1_pset.git
+  revision: 12be25a07393736c543bac2da44a619abcb9e300
   specs:
     poc1_pset (0.0.1)
 
@@ -48,7 +43,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
-    colored (1.2)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -117,7 +111,6 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
-  lambdalib!
   poc1_pset!
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)

@@ -37,6 +37,9 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'lambdalib', path: '../lambdalib'
-gem 'poc1_pset', path: '../poc1_pset'
+#gem 'lambdalib', path: '../lambdalib'
+#gem 'poc1_pset', path: '../poc1_pset'
+
+#gem 'lambdalib', path: '../lambdalib'
+gem 'poc1_pset', :git => "git://github.com/lambdacademy/poc1_pset.git"
 
