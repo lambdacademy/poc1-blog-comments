@@ -8,7 +8,7 @@ set :port, 22785
 disable :logging
 
 def require_bundle(&block)
-    bundle_msg = `cd .. && bundle --no-color check 2>&1`
+    bundle_msg = `cd .. && bundle check --no-color 2>&1`
     puts "bundle_msg = #{ bundle_msg }"
     if $?.exitstatus == 0
         block.call
