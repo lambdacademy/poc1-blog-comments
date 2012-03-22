@@ -39,7 +39,11 @@ end
 get '/check/:code' do
     result = require_bundle do
         if /^[a-z0-9_-]/i =~ params[:code]
-            return :success => true, :result => `cd .. && rake lambda:check[#{ params[:code] }]`
+            #return :success => true, :result => `cd .. && rake lambda:check[#{ params[:code] }]`
+            r = %x{ echo -n '{"success":true}' }
+            puts "Result: #{ r.inspect }"
+            puts "$?: #{ $?.inspect }"
+            return :success => true, :result => r
         end
     end
 
