@@ -25,7 +25,7 @@ puts "Open \e[1mhttp://#{ host }/#{ uid }/pset1\e[0m in your browser."
 
 gem_home = File.expand_path('../.lambda/vendor/bundle/ruby/1.9.1', File.dirname(__FILE__))
 
-`cd .lambda && GEM_HOME=#{ gem_home } ruby boot.rb 2>&1 > lambda.log`
+`cd .lambda && OLD_GEM_HOME=$GEM_HOME GEM_HOME=#{ gem_home } ruby boot.rb 2>&1 > lambda.log`
 
 #loop do
 #  sleep 5

@@ -8,7 +8,7 @@ set :port, 22785
 disable :logging
 
 def require_bundle(&block)
-    bundle_msg = `cd .. && bundle check --no-color 2>&1`
+    bundle_msg = `cd .. && GEM_HOME=#{ ENV['OLD_GEM_HOME'] } bundle check --no-color 2>&1`
     puts "bundle_msg = #{ bundle_msg }"
     if $?.exitstatus == 0
         block.call
@@ -42,7 +42,7 @@ end
 get '/check/:code' do
     result = require_bundle do
         if /^[a-z0-9_-]/i =~ params[:code]
-            r = `cd .. && rake "lambda:check[#{ params[:code] }]" 2>&1`
+            r = `cd .. && GEM_HOME=#{ ENV['OLD_GEM_HOME'] } bundle exec rake "lambda:check[#{ params[:code] }]" 2>&1`
             d = { :success => true, :result => r, :exitstatus => $?.exitstatus }
             next d
         end
