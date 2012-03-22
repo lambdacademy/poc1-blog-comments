@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/lambdacademy/poc1_pset.git
-  revision: 12be25a07393736c543bac2da44a619abcb9e300
+PATH
+  remote: ../poc1_pset
   specs:
     poc1_pset (0.0.1)
 

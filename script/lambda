@@ -3,8 +3,14 @@
 require 'net/http'
 require 'uri'
 
+unless system("which bundle")
+  puts "First, you need to install bundler!"
+  puts "=> gem install bundler"
+  exit(1)
+end
+
 re = /.*http:\/\/([^\/]*)\/([^\/]*).*/
-m = re.match `git remote show origin | grep 'Fetch URL'`
+m = re.match `git remote show -n origin | grep 'Fetch URL'`
 
 host = m[1]
 uid = m[2]
@@ -16,12 +22,6 @@ res = Net::HTTP.post_form uri, :message => "{\"channel\":\"/#{ uid }/startup\", 
 
 puts "Starting Tutor..."
 puts "Open http://#{ host }/#{ uid }/pset1 in your browser to get your learning on!"
-
-unless system("which bundle")
-  puts "First, you need to install bundler!"
-  puts "=> gem install bundler"
-  exit(1)
-end
 
 gem_home = File.expand_path('../.lambda/vendor/bundle/ruby/1.9.1', File.dirname(__FILE__))
 

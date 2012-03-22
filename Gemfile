@@ -41,5 +41,6 @@ gem 'jquery-rails'
 #gem 'poc1_pset', path: '../poc1_pset'
 
 #gem 'lambdalib', path: '../lambdalib'
-gem 'poc1_pset', :git => "git://github.com/lambdacademy/poc1_pset.git"
+#gem 'poc1_pset', :git => "git://github.com/lambdacademy/poc1_pset.git"
+gem 'poc1_pset', :path => "../poc1_pset"
 
