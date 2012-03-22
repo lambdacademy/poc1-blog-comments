@@ -9,6 +9,29 @@ unless system("which bundle")
   exit(1)
 end
 
+def ascii_logo
+  outp = ""
+
+  outp += "a    ___       by                           __                                   z\n"
+  outp += "a   /   \\     by                           /  |                                  z\n"
+  outp += "a   $$$  \\    by   _______   ______    ____$$ |  ______   _____  ____   __    __ z\n"
+  outp += "a     $$  \\   by  /       | /      \\  /    $$ | /      \\ /     \\/    \\ /  |  /  |z\n"
+  outp += "a      $$  \\  by /$$$$$$$/  $$$$$$  |/$$$$$$$ |/$$$$$$  |$$$$$$ $$$$  |$$ |  $$ |z\n"
+  outp += "a      $$$  \\ by $$ |       /    $$ |$$ |  $$ |$$    $$ |$$ | $$ | $$ |$$ |  $$ |z\n"
+  outp += "a     $$/$$  \\by $$ \\_____ /$$$$$$$ |$$ \\__$$ |$$$$$$$$/ $$ | $$ | $$ |$$ \\__$$ |z\n"
+  outp += "a    $$/  $$  |by$$       |$$    $$ |$$    $$ |$$       |$$ | $$ | $$ |$$    $$ |z\n"
+  outp += "a   $$/    $$/ by $$$$$$$/  $$$$$$$/  $$$$$$$/  $$$$$$$/ $$/  $$/  $$/  $$$$$$$ |z\n"
+  outp += "                                                                   y /  \\__$$ |z\n"
+  outp += "   Coding Exercises                                                y $$    $$/ z\n"
+  outp += "                                                                   y  $$$$$$/  z\n"
+
+  # make coloring slightly more manageable
+  outp = outp.gsub(/a([^b]*)b/m) { |m| "\e[37m\e[1m#{ $1 }\e[0m" }
+  outp = outp.gsub(/y([^z]*)z/m) { |m| "\e[36m#{ $1 }\e[0m" }
+
+  outp
+end
+
 re = /.*http:\/\/([^\/]*)\/([^\/]*).*/
 m = re.match `git remote show -n origin | grep 'Fetch URL'`
 
@@ -20,8 +43,10 @@ uri.port = 9292
 
 res = Net::HTTP.post_form uri, :message => "{\"channel\":\"/#{ uid }/startup\", \"data\":\"true\"}"
 
-puts "Starting Tutor..."
-puts "Open \e[1mhttp://#{ host }/#{ uid }/pset1\e[0m in your browser."
+puts
+puts ascii_logo
+puts "   Open \e[1mhttp://#{ host }/#{ uid }/pset1\e[0m in your browser."
+puts
 
 gem_home = File.expand_path('../.lambda/vendor/bundle/ruby/1.9.1', File.dirname(__FILE__))
 

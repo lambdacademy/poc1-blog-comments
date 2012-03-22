@@ -42,7 +42,7 @@ end
 get '/check/:code' do
     result = require_bundle do
         if /^[a-z0-9_-]/i =~ params[:code]
-            r = `cd .. && GEM_HOME=#{ ENV['OLD_GEM_HOME'] } bundle exec rake "lambda:check[#{ params[:code] }]" 2>&1`
+            r = `cd .. && GEM_HOME=#{ ENV['OLD_GEM_HOME'] } bundle exec rake "lambda:check[poc1_pset/#{ params[:code] }]" 2>&1`
             d = { :success => true, :result => r, :exitstatus => $?.exitstatus }
 
             if :exitstatus == 0
