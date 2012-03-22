@@ -5,9 +5,10 @@ require 'sinatra'
 require 'sinatra/jsonp'
 
 set :port, 22785
+disable :logging
 
 def require_bundle(&block)
-    bundle_msg = `cd .. && bundle check`
+    bundle_msg = `cd .. && bundle check --nocolor`
     if $?.exitstatus == 0
         block.call
     else

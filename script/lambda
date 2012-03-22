@@ -25,7 +25,7 @@ puts "Open http://#{ host }/#{ uid }/pset1 in your browser to get your learning 
 
 gem_home = File.expand_path('../.lambda/vendor/bundle/ruby/1.9.1', File.dirname(__FILE__))
 
-`cd .lambda && GEM_HOME=#{ gem_home } ruby boot.rb`
+`cd .lambda && GEM_HOME=#{ gem_home } ruby boot.rb 2>&1 > lambda.log`
 
 #loop do
 #  sleep 5
