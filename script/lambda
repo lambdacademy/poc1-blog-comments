@@ -21,7 +21,6 @@ uri.port = 9292
 res = Net::HTTP.post_form uri, :message => "{\"channel\":\"/#{ uid }/startup\", \"data\":\"true\"}"
 
 puts "Starting Tutor..."
-puts "Open http://#{ host }/#{ uid }/pset1 in your browser to get your learning on!"
 puts "Open \e[1mhttp://#{ host }/#{ uid }/pset1\e[0m in your browser."
 
 gem_home = File.expand_path('../.lambda/vendor/bundle/ruby/1.9.1', File.dirname(__FILE__))
