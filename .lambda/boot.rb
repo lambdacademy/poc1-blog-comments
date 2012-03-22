@@ -8,7 +8,8 @@ set :port, 22785
 disable :logging
 
 def require_bundle(&block)
-    bundle_msg = `cd .. && bundle check --nocolor`
+    bundle_msg = `cd .. && bundle --no-color check 2>&1`
+    puts "bundle_msg = #{ bundle_msg }"
     if $?.exitstatus == 0
         block.call
     else
@@ -31,19 +32,19 @@ get '/uid' do
 end
 
 get '/bundle/check' do
-    require_bundle do
-        JSONP :success => true
+    result = require_bundle do
+        { :success => true }
     end
+
+    JSONP result
 end
 
 get '/check/:code' do
     result = require_bundle do
         if /^[a-z0-9_-]/i =~ params[:code]
-            #return :success => true, :result => `cd .. && rake lambda:check[#{ params[:code] }]`
-            r = %x{ echo -n '{"success":true}' }
-            puts "Result: #{ r.inspect }"
-            puts "$?: #{ $?.inspect }"
-            return :success => true, :result => r
+            r = `cd .. && rake "lambda:check[#{ params[:code] }]" 2>&1`
+            d = { :success => true, :result => r, :exitstatus => $?.exitstatus }
+            next d
         end
     end
 
