@@ -36,10 +36,12 @@ get '/bundle/check' do
 end
 
 get '/check/:code' do
-    JSONP require_bundle do
+    result = require_bundle do
         if /^[a-z0-9_-]/i =~ params[:code]
             return :success => true, :result => `cd .. && rake lambda:check[#{ params[:code] }]`
         end
     end
+
+    JSONP result
 end
 
