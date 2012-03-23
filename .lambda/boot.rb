@@ -45,7 +45,7 @@ get '/check/:code' do
             r = `cd .. && GEM_HOME=#{ ENV['OLD_GEM_HOME'] } bundle exec rake "lambda:check[poc1_pset/#{ params[:code] }]" 2>&1`
             d = { :success => true, :result => r, :exitstatus => $?.exitstatus }
 
-            if :exitstatus == 0
+            if d[:exitstatus] == 0
                 d[:success] = true
             else
                 d[:success] = false

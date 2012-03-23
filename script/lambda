@@ -43,7 +43,7 @@ uri.port = 9292
 
 res = Net::HTTP.post_form uri, :message => "{\"channel\":\"/#{ uid }/startup\", \"data\":\"true\"}"
 
-puts
+puts "\e[2J\e[;H"
 puts ascii_logo
 puts "   Open \e[1mhttp://#{ host }/#{ uid }/pset1\e[0m in your browser."
 puts
